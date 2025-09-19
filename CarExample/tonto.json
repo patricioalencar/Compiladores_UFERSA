@@ -1,0 +1,15 @@
+{
+  "projectName": "CarModel",
+  "displayName": "Car Model",
+  "authors": ["Matheus Lenke Coutinho"],
+  "license": "MIT",
+  "version": "1.0.0",
+  "publisher": "UFES",
+  "dependencies": {
+    "CoreDataTypes": {
+      "url": "https://github.com/patricioalencar/Compiladores_UFERSA.git",
+      "directory": "CarExample"
+    }
+  },
+  "outFolder": "generated-files"
+}
