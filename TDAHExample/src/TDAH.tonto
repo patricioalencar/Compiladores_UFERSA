@@ -1,0 +1,129 @@
+import TDAH
+
+package TDAH
+
+category Hyperactivity_Symptom
+
+category Neurologically_Based_Condition specializes Medical_Condition 
+
+mixin Medical_Condition 
+
+category Inattention_Symptom 
+
+role Patient specializes Person 
+
+relator Medical_Report
+
+role Doctor specializes Person 
+
+kind Person
+
+mode Behavioral_Therapy
+
+mode Medication_Therapy
+
+subkind Methylphenidate_ specializes Medicine 
+
+subkind Dextroamphetamine_ specializes Medicine 
+
+relator Prescription
+
+phase Preschool_Age specializes Patient 
+
+phase School_Age specializes Patient 
+
+phase Teenager specializes Patient 
+
+phase Adult specializes Patient 
+
+quality Birth_Sex
+
+kind Medicine
+
+role Psychologist specializes Person 
+
+kind Criterion_B
+
+kind Criterion_C
+
+kind Criterion_D
+
+kind Criterion_E
+
+kind Criterion_A1a specializes Hyperactivity_Symptom 
+
+kind Criterion_A1b specializes Hyperactivity_Symptom 
+
+kind Criterion_A1c specializes Hyperactivity_Symptom 
+
+kind Criterion_A1d specializes Hyperactivity_Symptom 
+
+kind Criterion_A1e specializes Hyperactivity_Symptom 
+
+kind Criterion_A1f specializes Hyperactivity_Symptom 
+
+kind Criterion_A1g specializes Hyperactivity_Symptom 
+
+kind Criterion_A1h specializes Hyperactivity_Symptom 
+
+kind Criterion_A1i specializes Hyperactivity_Symptom 
+
+kind Criterion_A2a specializes Inattention_Symptom 
+
+kind Criterion_A2b specializes Inattention_Symptom 
+
+kind Criterion_A2c specializes Inattention_Symptom 
+
+kind Criterion_A2d specializes Inattention_Symptom 
+
+kind Criterion_A2e specializes Inattention_Symptom 
+
+kind Criterion_A2f specializes Inattention_Symptom 
+
+kind Criterion_A2g specializes Inattention_Symptom 
+
+kind Criterion_A2h specializes Inattention_Symptom 
+
+kind Criterion_A2i specializes Inattention_Symptom 
+
+quality Severity
+
+subkind Criterion_A1 specializes Criterion_A 
+
+subkind Criterion_A2 specializes Criterion_A 
+
+kind Criterion_A
+
+kind ADHD specializes Neurologically_Based_Condition 
+
+disjoint complete genset TypesOfMedicine {
+    general Medicine
+    specifics Dextroamphetamine_, Methylphenidate_
+}
+
+disjoint complete genset PhasesOfAPatient{
+    general Patient
+    specifics Preschool_Age, School_Age, Adult, Teenager
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

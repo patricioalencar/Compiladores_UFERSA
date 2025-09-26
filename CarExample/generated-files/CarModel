@@ -1,0 +1,109 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:ResponsibleEmployee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ResponsibleEmployee"@en.
+:DeceasedPerson rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "DeceasedPerson"@en.
+:LivingPerson rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LivingPerson"@en.
+:Child rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Teenager rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Teenager"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Customer"@en.
+:PersonalCustomer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PersonalCustomer"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:CorporateCustomer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CorporateCustomer"@en.
+:Car rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Car"@en.
+:AvailableCar rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "AvailableCar"@en.
+:UnderMaintenanceCar rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "UnderMaintenanceCar"@en.
+:RentalCar rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RentalCar"@en.
+:CarRental rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "CarRental"@en.
+:Organization_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:CarAgency rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CarAgency"@en.
+:Car_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Car"@en.
+:CarOwnership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "CarOwnership"@en.
+:Child rdfs:subClassOf :LivingPerson.
+:Teenager rdfs:subClassOf :LivingPerson.
+:Adult rdfs:subClassOf :LivingPerson.
+:DeceasedPerson rdfs:subClassOf :Person.
+:LivingPerson rdfs:subClassOf :Person.
+:Employee rdfs:subClassOf :Person.
+:ResponsibleEmployee rdfs:subClassOf :Employee.
+:DeceasedPerson rdfs:subClassOf :Person.
+:LivingPerson rdfs:subClassOf :Person.
+:Child rdfs:subClassOf :LivingPerson.
+:Teenager rdfs:subClassOf :LivingPerson.
+:Adult rdfs:subClassOf :LivingPerson.
+:PersonalCustomer rdfs:subClassOf :Customer, :Person.
+:CorporateCustomer rdfs:subClassOf :Organization.
+:AvailableCar rdfs:subClassOf :Car.
+:UnderMaintenanceCar rdfs:subClassOf :Car.
+:RentalCar rdfs:subClassOf :AvailableCar.
+:CarAgency rdfs:subClassOf :Organization_1.
+:LivingPerson owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Child :Teenager :Adult)
+].
+:Person owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:DeceasedPerson :LivingPerson)
+].
+:involvesRental rdf:type owl:ObjectProperty;
+    rdfs:domain :CarRental;
+    rdfs:range :RentalCar;
+    rdfs:label "involvesRental"@en;
+    rdfs:subPropertyOf gufo:mediates.
+:involvesMediator rdf:type owl:ObjectProperty;
+    rdfs:domain :CarRental;
+    rdfs:range :ResponsibleEmployee;
+    rdfs:label "involvesMediator"@en.
+:involvesCustomer rdf:type owl:ObjectProperty;
+    rdfs:domain :CarRental;
+    rdfs:range :Customer;
+    rdfs:label "involvesCustomer"@en;
+    rdfs:subPropertyOf gufo:mediates.
+:involvesOwner rdf:type owl:ObjectProperty;
+    rdfs:domain :CarOwnership;
+    rdfs:range :CarAgency;
+    rdfs:label "involvesOwner"@en;
+    rdfs:subPropertyOf gufo:mediates.
+:involvesProperty rdf:type owl:ObjectProperty;
+    rdfs:domain :CarOwnership;
+    rdfs:range :Car_1;
+    rdfs:label "involvesProperty"@en;
+    rdfs:subPropertyOf gufo:mediates.
