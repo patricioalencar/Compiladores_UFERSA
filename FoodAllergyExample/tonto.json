@@ -1,0 +1,15 @@
+{
+  "projectName": "FoodAllergyExample",
+  "displayName": "Food Allergy Example",
+  "authors": ["Afonso Simão"],
+  "license": "MIT",
+  "version": "1.0.0",
+  "publisher": "UFERSA",
+  "dependencies": {
+    "FoodAllergyExample": {
+      "url": "https://github.com/patricioalencar/Compiladores_UFERSA/tree/main/FoodAllergyExample"
+     
+    }
+  },
+  "outFolder": "generated-files"
+}

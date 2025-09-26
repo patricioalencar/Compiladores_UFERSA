@@ -1,0 +1,146 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Paciente rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Paciente"@en.
+:Alimento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Alimento"@en.
+:Proteina rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Proteina"@en.
+:Crianca rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Crianca"@en.
+:Adulto rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adulto"@en.
+:Aditivo_Alimentar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Aditivo_Alimentar"@en.
+:Carboidrato rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Carboidrato"@en.
+:Imuno_Mediada rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Imuno_Mediada"@en.
+:Nao_Imuno_Mediada rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nao_Imuno_Mediada"@en.
+:Sintoma rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Sintoma"@en.
+:Cutaneo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cutaneo"@en.
+:Gastrointestinal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Gastrointestinal"@en.
+:Respiratorio rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Respiratorio"@en.
+:Sistemico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sistemico"@en.
+:Alergeno rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Alergeno"@en.
+:Tratamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Tratamento"@en.
+:Diagnostico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Diagnostico"@en.
+:Mista rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mista"@en.
+:Profissional_de_Saude rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Profissional_de_Saude"@en.
+:Ingrediente rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ingrediente"@en.
+:Formula rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Formula"@en.
+:Teste_de_Dosagem_IgE_Serica rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Teste_de_Dosagem_IgE_Serica"@en.
+:Teste_de_Provocacao_Oral rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Teste_de_Provocacao_Oral"@en.
+:Procedimento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Procedimento"@en.
+:Dieta_de_Exclusao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dieta_de_Exclusao"@en.
+:Medicamento rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Medicamento"@en.
+:Imunoterapia_Oral rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Imunoterapia_Oral"@en.
+:Comobidarde_Alergica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Comobidarde_Alergica"@en.
+:Heranca_Genetica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Heranca_Genetica"@en.
+:Reacao_Cruzada rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Reacao_Cruzada"@en.
+:Alergia rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Alergia"@en.
+:Reacao_Adversa rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Reacao_Adversa"@en.
+:Componente_Alimentar rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Componente_Alimentar"@en.
+:Consumo_Alimentar rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Consumo_Alimentar"@en.
+:Teste_Cutaneo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Teste_Cutaneo"@en.
+:Disposicao_Alergica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Disposicao_Alergica"@en.
+:Exposicao_ao_Alergeno rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Exposicao_ao_Alergeno"@en.
+:Avaliacao_de_Risco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Avaliacao_de_Risco"@en.
+:Nivel_de_Risco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Nivel_de_Risco"@en.
+:Proteina rdfs:subClassOf :Componente_Alimentar.
+:Aditivo_Alimentar rdfs:subClassOf :Componente_Alimentar.
+:Carboidrato rdfs:subClassOf :Componente_Alimentar.
+:Imuno_Mediada rdfs:subClassOf :Alergia.
+:Mista rdfs:subClassOf :Alergia.
+:Nao_Imuno_Mediada rdfs:subClassOf :Alergia.
+:Respiratorio rdfs:subClassOf :Sintoma.
+:Sistemico rdfs:subClassOf :Sintoma.
+:Gastrointestinal rdfs:subClassOf :Sintoma.
+:Cutaneo rdfs:subClassOf :Sintoma.
+:Teste_Cutaneo rdfs:subClassOf :Procedimento.
+:Teste_de_Dosagem_IgE_Serica rdfs:subClassOf :Procedimento.
+:Teste_de_Provocacao_Oral rdfs:subClassOf :Procedimento.
+:Formula rdfs:subClassOf :Alimento.
+:Ingrediente rdfs:subClassOf :Alimento.
+:Crianca rdfs:subClassOf :Paciente.
+:Adulto rdfs:subClassOf :Paciente.
+:Imunoterapia_Oral rdfs:subClassOf :Tratamento.
+:Medicamento rdfs:subClassOf :Tratamento.
+:Dieta_de_Exclusao rdfs:subClassOf :Tratamento.
+:Proteina rdfs:subClassOf :Componente_Alimentar.
+:Crianca rdfs:subClassOf :Paciente.
+:Adulto rdfs:subClassOf :Paciente.
+:Aditivo_Alimentar rdfs:subClassOf :Componente_Alimentar.
+:Carboidrato rdfs:subClassOf :Componente_Alimentar.
+:Imuno_Mediada rdfs:subClassOf :Alergia.
+:Nao_Imuno_Mediada rdfs:subClassOf :Alergia.
+:Cutaneo rdfs:subClassOf :Sintoma.
+:Gastrointestinal rdfs:subClassOf :Sintoma.
+:Respiratorio rdfs:subClassOf :Sintoma.
+:Sistemico rdfs:subClassOf :Sintoma.
+:Alergeno rdfs:subClassOf :Componente_Alimentar.
+:Mista rdfs:subClassOf :Alergia.
+:Ingrediente rdfs:subClassOf :Alimento.
+:Formula rdfs:subClassOf :Alimento.
+:Teste_de_Dosagem_IgE_Serica rdfs:subClassOf :Procedimento.
+:Teste_de_Provocacao_Oral rdfs:subClassOf :Procedimento.
+:Dieta_de_Exclusao rdfs:subClassOf :Tratamento.
+:Medicamento rdfs:subClassOf :Tratamento.
+:Imunoterapia_Oral rdfs:subClassOf :Tratamento.
+:Reacao_Cruzada rdfs:subClassOf :Reacao_Adversa.
+:Teste_Cutaneo rdfs:subClassOf :Procedimento.

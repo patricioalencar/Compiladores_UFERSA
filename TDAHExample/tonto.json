@@ -1,13 +1,13 @@
 {
-  "projectName": "CarModel",
-  "displayName": "Car Model",
-  "authors": ["Matheus Lenke Coutinho"],
+  "projectName": "TDAHExample",
+  "displayName": "TDAH Example",
+  "authors": ["Davi Adriano Guimarães"],
   "license": "MIT",
   "version": "1.0.0",
-  "publisher": "UFES",
+  "publisher": "UFERSA",
   "dependencies": {
-    "CarExample": {
-      "url": "https://github.com/patricioalencar/Compiladores_UFERSA/tree/main/CarExample"
+    "TDAHExample": {
+      "url": "https://github.com/patricioalencar/Compiladores_UFERSA/tree/main/TDAHExample"
      
     }
   },

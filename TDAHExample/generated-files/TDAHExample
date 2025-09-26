@@ -1,0 +1,165 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Hyperactivity_Symptom rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Hyperactivity_Symptom"@en.
+:Neurologically_Based_Condition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Neurologically_Based_Condition"@en.
+:Medical_Condition rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Medical_Condition"@en.
+:Inattention_Symptom rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Inattention_Symptom"@en.
+:Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Patient"@en.
+:Medical_Report rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Medical_Report"@en.
+:Doctor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Doctor"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Behavioral_Therapy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Behavioral_Therapy"@en.
+:Medication_Therapy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Medication_Therapy"@en.
+:Methylphenidate_ rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Methylphenidate_"@en.
+:Dextroamphetamine_ rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dextroamphetamine_"@en.
+:Prescription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Prescription"@en.
+:Preschool_Age rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Preschool_Age"@en.
+:School_Age rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "School_Age"@en.
+:Teenager rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Teenager"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Birth_Sex rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Birth_Sex"@en.
+:Medicine rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Medicine"@en.
+:Psychologist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Psychologist"@en.
+:Criterion_B rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Criterion_B"@en.
+:Criterion_C rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Criterion_C"@en.
+:Criterion_D rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Criterion_D"@en.
+:Criterion_E rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Criterion_E"@en.
+:Criterion_A1a rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1a"@en.
+:Criterion_A1b rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1b"@en.
+:Criterion_A1c rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1c"@en.
+:Criterion_A1d rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1d"@en.
+:Criterion_A1e rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1e"@en.
+:Criterion_A1f rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1f"@en.
+:Criterion_A1g rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1g"@en.
+:Criterion_A1h rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1h"@en.
+:Criterion_A1i rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1i"@en.
+:Criterion_A2a rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2a"@en.
+:Criterion_A2b rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2b"@en.
+:Criterion_A2c rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2c"@en.
+:Criterion_A2d rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2d"@en.
+:Criterion_A2e rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2e"@en.
+:Criterion_A2f rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2f"@en.
+:Criterion_A2g rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2g"@en.
+:Criterion_A2h rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2h"@en.
+:Criterion_A2i rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2i"@en.
+:Severity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Severity"@en.
+:Criterion_A1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Criterion_A1"@en.
+:Criterion_A2 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Criterion_A2"@en.
+:Criterion_A rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Criterion_A"@en.
+:ADHD rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ADHD"@en.
+:Dextroamphetamine_ rdfs:subClassOf :Medicine.
+:Methylphenidate_ rdfs:subClassOf :Medicine.
+:Preschool_Age rdfs:subClassOf :Patient.
+:School_Age rdfs:subClassOf :Patient.
+:Adult rdfs:subClassOf :Patient.
+:Teenager rdfs:subClassOf :Patient.
+:Neurologically_Based_Condition rdfs:subClassOf :Medical_Condition.
+:Patient rdfs:subClassOf :Person.
+:Doctor rdfs:subClassOf :Person.
+:Methylphenidate_ rdfs:subClassOf :Medicine.
+:Dextroamphetamine_ rdfs:subClassOf :Medicine.
+:Preschool_Age rdfs:subClassOf :Patient.
+:School_Age rdfs:subClassOf :Patient.
+:Teenager rdfs:subClassOf :Patient.
+:Adult rdfs:subClassOf :Patient.
+:Psychologist rdfs:subClassOf :Person.
+:Criterion_A1a rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1b rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1c rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1d rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1e rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1f rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1g rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1h rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A1i rdfs:subClassOf :Hyperactivity_Symptom.
+:Criterion_A2a rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2b rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2c rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2d rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2e rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2f rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2g rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2h rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A2i rdfs:subClassOf :Inattention_Symptom.
+:Criterion_A1 rdfs:subClassOf :Criterion_A.
+:Criterion_A2 rdfs:subClassOf :Criterion_A.
+:ADHD rdfs:subClassOf :Neurologically_Based_Condition.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Dextroamphetamine_ :Methylphenidate_).
+:Medicine owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Dextroamphetamine_ :Methylphenidate_)
+].
+:Patient owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Preschool_Age :School_Age :Adult :Teenager)
+].
