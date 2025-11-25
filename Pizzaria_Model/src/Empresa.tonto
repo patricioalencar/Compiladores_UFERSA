@@ -1,0 +1,8 @@
+package Empresa
+
+kind Empresa {
+    nome : string [1]
+    cnpj : string [1]
+}
+
+subkind Pizzaria specializes Empresa

@@ -1,0 +1,14 @@
+{
+   "projectName": "Pizzaria_Model",
+   "displayName": "Pizzaria_Model",
+   "version": "0.0.1",
+   "publisher": "default publisher",
+   "license": "MIT",
+   "outFolder": "out",
+   "dependencies": {},
+   "authors": [
+      {
+         "name": "Pedro David"
+      }
+   ]
+}

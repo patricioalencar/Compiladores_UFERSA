@@ -1,0 +1,39 @@
+import Pessoa
+import Cliente
+import Pizza
+import Empresa
+
+package Pizzaria
+
+//=============================================
+// ATENDIMENTO
+@material relation Atendente [1..*] -- anota -- [1..*] Lista_de_Itens
+@material relation Cliente [1..*] -- solicita -- [1..*] Lista_de_Itens
+@material relation Cliente [1..*] -- atendido_Por -- [1..*] Atendente
+
+relator Atendimento {
+    @mediation [1..*] -- [1..*] Atendente
+    @mediation [1..*] -- [1..*] Cliente
+    @mediation [1..*] -- [1..*] Lista_de_Itens
+}
+
+//=============================================
+// CONFECCAO DE PIZZA
+@material relation Pizzaiolo [1..*] -- confecciona -- [1..*] Pizza
+
+relator Confeccao_De_Pizza {
+    @mediation [1..*] -- [1..*] Pizzaiolo
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+//=============================================
+// RELACAO PIZZARIA E CLIENTE
+@material relation Cliente [1..*] -- compra_Em -- [1..*] Pizzaria
+@material relation Pizzaria [1..*] -- vende -- [1..*] Item_Da_Pizzaria
+@material relation Cliente [1..*] -- compra -- [1..*] Item_Da_Pizzaria
+
+relator Venda_De_Alimento {
+    @mediation [1..*] -- [1..*] Pizzaria
+    @mediation [1..*] -- [1..*] Cliente
+    @mediation [1..*] -- [1..*] Item_Da_Pizzaria
+}
