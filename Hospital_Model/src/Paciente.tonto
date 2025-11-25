@@ -10,12 +10,12 @@ role Paciente specializes Pessoa {
 
 // Simbolos + e - foram substituidos por Plus e Minus, respectivamente.
 enum TipoSanguineo {
-    A_Plus,
-    A_Minus,
-    B_Plus,
-    B_Minus,
-    AB_Plus,
-    AB_Minus, 
-    O_Plus,
-    O_Minus
+    A_Plus01,
+    A_Minus02,
+    B_Plus03,
+    B_Minus04,
+    AB_Plus05,
+    AB_Minus06, 
+    O_Plus07,
+    O_Minus08
 }
