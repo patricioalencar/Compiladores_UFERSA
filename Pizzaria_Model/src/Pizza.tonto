@@ -7,7 +7,6 @@ package Pizza
 // DEFINICAO DA CLASSE PIZZA
 subkind Pizza specializes Item_Da_Pizzaria
 
-//=============================================
 // DISJUNCAO DOS ITENS DA PIZZARIS
 disjoint complete genset Tipo_Do_Item {
     general Item_Da_Pizzaria,
@@ -67,9 +66,9 @@ subkind Borda_Recheada specializes Borda_Da_Pizza {
 }
 
 enum Recheio_Da_Borda {
-    Chocolate,
-    Catupiry,
-    Molho_Cheddar
+    Chocolate01,
+    Catupiry02,
+    Molho_Cheddar03
 }
 
 disjoint complete genset Opcao_De_Borda {
