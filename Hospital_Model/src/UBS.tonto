@@ -31,9 +31,9 @@ relator Vinculo_Empregaticio {
 }
 
 enum Tipo_De_Vinculo {
-    Estatuario,
-    CLT,
-    Temporario
+    Estatuario01,
+    CLT02,
+    Temporario03
 }
 
 //=============================================
