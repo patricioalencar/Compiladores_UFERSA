@@ -13,7 +13,7 @@ kind Vacina {
 
 enum Tipo_De_Vacina {
     Covid01,
-    Febre_Amarela02,
+    FebreAmarela02,
     Tetano03,
     Influenza04
 }
