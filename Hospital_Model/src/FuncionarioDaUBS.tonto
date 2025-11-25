@@ -21,10 +21,10 @@ role Medico specializes FuncionarioDaUBS {
 }
 
 enum Especialidade {
-    Clinico_Geral,
-    Pediatra,
-    Ginecologista,
-    Dentista
+    Clinico_Geral01,
+    Pediatra02,
+    Ginecologista03,
+    Dentista04
 }
 
 //=============================================
