@@ -2,6 +2,7 @@ import Pessoa
 import Cliente
 import Pizza
 import Empresa
+import ItensDaPizzaria
 
 package Pizzaria
 

@@ -9,7 +9,7 @@ subkind Pizza specializes Item_Da_Pizzaria
 
 // DISJUNCAO DOS ITENS DA PIZZARIS
 disjoint complete genset Tipo_Do_Item {
-    general Item_Da_Pizzaria,
+    general Item_Da_Pizzaria
     specifics Pizza, Bebida, Petisco
 }
 
@@ -26,7 +26,7 @@ subkind Massa_Fina_e_Crocante specializes Massa_Da_Pizza
 subkind Massa_Pan specializes Massa_Da_Pizza
 
 disjoint complete genset Opcao_De_Massa {
-    general Massa_Da_Pizza,
+    general Massa_Da_Pizza
     specifics Massa_Fina_e_Crocante, Massa_Pan
 }
 
@@ -46,7 +46,7 @@ subkind Queijo specializes Cobertura_Da_Pizza
 subkind Vegetal specializes Cobertura_Da_Pizza
 
 disjoint complete genset Opcao_De_Cobertura {
-    general Cobertura_Da_Pizza,
+    general Cobertura_Da_Pizza
     specifics Carne, Fruto_Do_Mar, Queijo, Vegetal
 }
 
@@ -72,7 +72,7 @@ enum Recheio_Da_Borda {
 }
 
 disjoint complete genset Opcao_De_Borda {
-    general Borda_Da_Pizza,
+    general Borda_Da_Pizza
     specifics Borda_Recheada, Borda_Sem_Recheio
 }
 

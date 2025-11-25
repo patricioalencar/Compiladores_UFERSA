@@ -17,7 +17,7 @@ role Funcionario specializes Pessoa
 //=============================================
 // DISJUNCAO DOS PAPEIS HUMANOS 
 disjoint complete genset Papel_Da_Pessoa {
-    general Pessoa,
+    general Pessoa
     specifics ClienteIndividual, Dono_De_Pizzaria, Funcionario
 }
 
@@ -29,6 +29,6 @@ role Atendente specializes Funcionario
 //=============================================
 // DISJUNCAO DOS PAPEIS DOS FUNCIONARIOS
 disjoint complete genset Papel_Do_Funcionario {
-    general Funcionario,
+    general Funcionario
     specifics Pizzaiolo, Atendente
 }

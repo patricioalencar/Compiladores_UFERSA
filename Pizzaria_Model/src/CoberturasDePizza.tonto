@@ -10,7 +10,7 @@ subkind Salame specializes Carne
 
 // DISJUNCAO DAS OPCOES DE CARNE
 disjoint complete genset Opcao_De_Carne {
-    general Carne,
+    general Carne
     specifics Calabresa, Presunto, Salame
 }
 
@@ -22,7 +22,7 @@ subkind Camarao specializes Fruto_Do_Mar
 
 // DISJUNCAO DAS OPCOES DE FRUTO DO MAR
 disjoint complete genset Opcao_De_Fruto_Do_Mar {
-    general Fruto_Do_Mar,
+    general Fruto_Do_Mar
     specifics Anchova, Atum, Camarao
 }
 
@@ -33,7 +33,7 @@ subkind Parmesao specializes Queijo
 
 // DISJUNCAO DAS OPCOES DE QUEIJO
 disjoint complete genset Opcao_De_Queijo {
-    general Queijo,
+    general Queijo
     specifics Mussarela, Parmesao
 }
 
@@ -45,6 +45,6 @@ subkind Tomate specializes Vegetal
 
 // DISJUNCAO DAS OPCOES DE VEGETAL
 disjoint complete genset Opcao_De_Vegetal {
-    general Vegetal,
+    general Vegetal
     specifics Azeitona, Pimenta, Tomate
 }
