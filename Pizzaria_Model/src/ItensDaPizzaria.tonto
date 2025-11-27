@@ -10,7 +10,6 @@ subkind Bebida specializes Item_Da_Pizzaria
 subkind Petisco specializes Item_Da_Pizzaria
 // Obs.: disjuncao dos itens da pizzaria definida no package Pizza
 
-
 subkind Agua specializes Bebida
 subkind Refrigerante specializes Bebida
 subkind Suco specializes Bebida
@@ -18,7 +17,7 @@ subkind Suco specializes Bebida
 //=============================================
 // DISJUNCAO DAS OPCOES DE BEBIDAS
 disjoint complete genset Opcao_De_Bebida {
-    general Bebida,
+    general Bebida
     specifics Agua, Refrigerante, Suco
 }
 

@@ -5,4 +5,4 @@ kind Empresa {
     cnpj : string [1]
 }
 
-subkind Pizzaria specializes Empresa
+role Pizzaria specializes Empresa

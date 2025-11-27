@@ -19,10 +19,10 @@ relator Atendimento {
 }
 
 //=============================================
-// CONFECCAO DE PIZZA
-@material relation Pizzaiolo [1..*] -- confecciona -- [1..*] Pizza
+// PREPARO DA PIZZA
+@material relation Pizzaiolo [1..*] -- prepara -- [1..*] Pizza
 
-relator Confeccao_De_Pizza {
+relator Preparo_Da_Pizza {
     @mediation [1..*] -- [1..*] Pizzaiolo
     @mediation [1..*] -- [1..*] Pizza
 }
