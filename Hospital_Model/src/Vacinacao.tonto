@@ -1,0 +1,34 @@
+import Paciente
+import FuncionarioDaUBS
+
+package Vacinacao
+
+
+//=============================================
+// DEFINICAO DA CLASSE VACINA
+
+kind Vacina {
+    tipo_De_Vacina : Tipo_De_Vacina
+}
+
+enum Tipo_De_Vacina {
+    Covid01,
+    FebreAmarela02,
+    Tetano03,
+    Influenza04
+}
+//=============================================
+
+//=============================================
+// RELACOES ENTRE PACIENTE, ENFERMEIRO E VACINA
+
+@material relation Enfermeiro [1..*] -- verifica -- [1..*] Vacina
+@material relation Paciente [1..*] -- vacinado_Por -- [1..*] Enfermeiro
+@material relation Paciente [1..*] -- imunizado_Com -- [1..*] Vacina
+
+relator Vacinacao {
+    @mediation [1..*] -- [1] Enfermeiro
+    @mediation [1..*] -- [1] Paciente
+    @mediation [1..*] -- [1..*] Vacina
+}
+//=============================================

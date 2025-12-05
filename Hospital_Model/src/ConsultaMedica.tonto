@@ -1,0 +1,25 @@
+import Paciente
+import FuncionarioDaUBS
+
+package ConsultaMedica
+
+//=============================================
+// RELACAO ENTRE PACIENTE E MEDICO
+
+@material relation Paciente [1..*] -- consultado_Por -- [1..*] Medico
+
+relator Consulta_Medica {
+    tipo_De_Consulta : Tipo_De_Consulta
+
+    @mediation [1..*] -- [1] Paciente
+    @mediation [1..*] -- [1] Medico
+}
+
+enum Tipo_De_Consulta {
+    Acompanhamento_Pediatrico01,
+    Atendimento_Pre-Natal02,
+    Atendimento_Odontologico03,
+    Consulta_Clinica_Geral04
+}
+
+//=============================================

@@ -1,0 +1,14 @@
+{
+   "projectName": "Pizzaria_Model",
+   "displayName": "Pizzaria_Model",
+   "authors": ["Pedro David"],
+   "version": "0.0.1",
+   "publisher": "default publisher",
+   "license": "MIT",
+   "dependencies": {
+      "Pizzaria_Model": {
+         "url": "https://github.com/patricioalencar/Compiladores_UFERSA/tree/main/Pizzaria_Model"
+      }
+   },
+  "outFolder": "generated-files"
+}

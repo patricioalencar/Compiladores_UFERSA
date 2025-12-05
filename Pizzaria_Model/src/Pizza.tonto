@@ -1,0 +1,84 @@
+import ItensDaPizzaria
+import CoberturasDePizza
+
+package Pizza
+
+//=============================================
+// DEFINICAO DA CLASSE PIZZA
+subkind Pizza specializes Item_Da_Pizzaria
+
+// DISJUNCAO DOS ITENS DA PIZZARIS
+disjoint complete genset Tipo_Do_Item {
+    general Item_Da_Pizzaria
+    specifics Pizza, Bebida, Petisco
+}
+
+//=============================================
+// DEFINICAO DA CLASSES MASSA, RECHEIO E BORDA
+kind Massa_Da_Pizza
+kind Cobertura_Da_Pizza
+kind Borda_Da_Pizza
+
+//=============================================
+// OPCOES DE MASSA
+
+subkind Massa_Fina_e_Crocante specializes Massa_Da_Pizza
+subkind Massa_Pan specializes Massa_Da_Pizza
+
+disjoint complete genset Opcao_De_Massa {
+    general Massa_Da_Pizza
+    specifics Massa_Fina_e_Crocante, Massa_Pan
+}
+
+@material relation Pizza [1..*] -- tem_Massa -- [1..*] Massa_Da_Pizza
+
+relator Composicao_Da_Massa {
+    @mediation [1..*] -- [1..*] Massa_Da_Pizza
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+//=============================================
+// OPCOES DE COBERTURA
+
+subkind Carne specializes Cobertura_Da_Pizza
+subkind Fruto_Do_Mar specializes Cobertura_Da_Pizza
+subkind Queijo specializes Cobertura_Da_Pizza
+subkind Vegetal specializes Cobertura_Da_Pizza
+
+disjoint complete genset Opcao_De_Cobertura {
+    general Cobertura_Da_Pizza
+    specifics Carne, Fruto_Do_Mar, Queijo, Vegetal
+}
+
+@material relation Pizza [1..*] -- tem_Cobertura -- [1..*] Cobertura_Da_Pizza
+
+relator Montagem_Da_Cobertura {
+    @mediation [1..*] -- [1..*] Cobertura_Da_Pizza
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+//=============================================
+// OPCOES DE BORDA
+
+subkind Borda_Sem_Recheio specializes Borda_Da_Pizza
+subkind Borda_Recheada specializes Borda_Da_Pizza {
+    recheio_Da_Borda : Recheio_Da_Borda
+}
+
+enum Recheio_Da_Borda {
+    Chocolate01,
+    Catupiry02,
+    Molho_Cheddar03
+}
+
+disjoint complete genset Opcao_De_Borda {
+    general Borda_Da_Pizza
+    specifics Borda_Recheada, Borda_Sem_Recheio
+}
+
+@material relation Pizza [1..*] -- tem_Borda -- [1..*] Borda_Da_Pizza
+
+relator Montagem_Da_Borda {
+    @mediation [1..*] -- [1..*] Borda_Da_Pizza
+    @mediation [1..*] -- [1..*] Pizza
+}

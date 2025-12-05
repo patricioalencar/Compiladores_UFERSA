@@ -1,0 +1,34 @@
+import Cliente
+
+package Pessoa
+
+//=============================================
+// DEFINICAO DA CLASSE PESSOA
+kind Pessoa {
+    nome : string [1]
+    cpf : string [1]
+}
+
+//=============================================
+// DEFINICAO DA CLASSES DONO E FUNCIONARIO
+role Dono_De_Pizzaria specializes Pessoa
+role Funcionario specializes Pessoa
+
+//=============================================
+// DISJUNCAO DOS PAPEIS HUMANOS 
+disjoint complete genset Papel_Da_Pessoa {
+    general Pessoa
+    specifics ClienteIndividual, Dono_De_Pizzaria, Funcionario
+}
+
+//=============================================
+// DEFINICAO DOS PAPEIS DOS FUNCIONARIOS
+role Pizzaiolo specializes Funcionario
+role Atendente specializes Funcionario
+
+//=============================================
+// DISJUNCAO DOS PAPEIS DOS FUNCIONARIOS
+disjoint complete genset Papel_Do_Funcionario {
+    general Funcionario
+    specifics Pizzaiolo, Atendente
+}

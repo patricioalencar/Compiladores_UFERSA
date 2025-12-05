@@ -1,0 +1,39 @@
+import Paciente
+import FuncionarioDaUBS
+import ConsultaMedica
+import Vacinacao
+
+package UBS
+
+kind Unidade_Basica_De_Saude
+
+//=============================================
+// RELACAO ENTRE UBS E PACIENTE
+
+@material relation Paciente [1..*] -- atendido_Em --  [1..*] Unidade_Basica_De_Saude
+relator Servico_Basico_De_Saude {
+    @mediation [1..*] -- [1..*] Unidade_Basica_De_Saude
+    @mediation [1..*] -- [1..*] Paciente
+}
+
+//=============================================
+
+//=============================================
+// RELACAO ENTRE UBS E FUNCIONARIO_DA_UBS
+
+@material relation FuncionarioDaUBS [1..*] -- trabalha_Em -- [1] Unidade_Basica_De_Saude
+
+relator Vinculo_Empregaticio {
+    tipo_De_Vinculo : Tipo_De_Vinculo
+    
+    @mediation [1..*] -- [1] Unidade_Basica_De_Saude
+    @mediation [1..*] -- [1..*] FuncionarioDaUBS
+}
+
+enum Tipo_De_Vinculo {
+    Estatuario01,
+    CLT02,
+    Temporario03
+}
+
+//=============================================

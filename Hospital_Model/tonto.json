@@ -1,0 +1,14 @@
+{
+   "projectName": "Hospital_Model",
+   "displayName": "Hospital_Model",
+   "authors": ["Pedro David"],
+   "version": "0.0.1",
+   "publisher": "default publisher",
+   "license": "MIT",
+   "dependencies": {
+      "Hospital_Model": {
+         "url": "https://github.com/patricioalencar/Compiladores_UFERSA/tree/main/Hospital_Model"
+      }
+   },
+  "outFolder": "generated-files"
+}

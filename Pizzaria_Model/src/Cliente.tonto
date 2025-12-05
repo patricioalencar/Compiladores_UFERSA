@@ -1,0 +1,9 @@
+import Pessoa
+import Empresa
+
+package Cliente
+
+roleMixin Cliente
+
+role ClienteIndividual specializes Cliente, Pessoa
+role ClienteEmpresarial specializes Cliente, Empresa

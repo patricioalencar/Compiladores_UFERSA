@@ -1,0 +1,21 @@
+import Pessoa
+
+package Paciente
+
+role Paciente specializes Pessoa {
+    tipo_Sanguineo : TipoSanguineo
+    numero_Prontuario : number
+    numero_CNS : string
+}
+
+// Simbolos + e - foram substituidos por Plus e Minus, respectivamente.
+enum TipoSanguineo {
+    A_Plus01,
+    A_Minus02,
+    B_Plus03,
+    B_Minus04,
+    AB_Plus05,
+    AB_Minus06, 
+    O_Plus07,
+    O_Minus08
+}
