@@ -1,0 +1,12 @@
+package Subkind_Pattern
+
+kind ClassName
+subkind SubclassName1 specializes ClassName
+subkind SubclassName2 specializes ClassName
+
+
+disjoint complete genset Kind_Subkind_Genset_Name { 
+    general ClassName
+    specifics SubclassName1, SubclassName2
+}
+// "complete" is optional, but "disjoint" applies to subkinds
