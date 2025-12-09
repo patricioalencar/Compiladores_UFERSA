@@ -1,0 +1,12 @@
+package Phase_Pattern
+
+kind ClassName
+phase Phase_Name1 specializes ClassName
+phase Phase_Name2 specializes ClassName
+phase Phase_NameN specializes ClassName
+
+disjoint complete genset Class_Phase_Genset_Name {
+    general ClassName
+    specifics Phase_Name1, Phase_Name2, Phase_NameN
+}
+//"disjoint" is mandatory for phases, but "complete" is optional
