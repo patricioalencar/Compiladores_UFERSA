@@ -7,3 +7,8 @@ roleMixin Cliente
 
 role ClienteIndividual specializes Cliente, Pessoa
 role ClienteEmpresarial specializes Cliente, Empresa
+
+disjoint complete genset Tipos_de_Clientes {
+    general Cliente
+    specifics ClienteIndividual, ClienteEmpresarial
+}
