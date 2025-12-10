@@ -1,0 +1,161 @@
+package PizzariaMono
+
+kind Pessoa {
+    nome : string [1]
+    cpf : string [1]
+}
+kind Empresa {
+    nome : string [1]
+    cnpj : string [1]
+}
+kind Item_Da_Pizzaria {
+    preco : number
+}
+kind Massa_Da_Pizza
+kind Cobertura_Da_Pizza
+kind Borda_Da_Pizza
+
+subkind Bebida specializes Item_Da_Pizzaria
+subkind Petisco specializes Item_Da_Pizzaria
+subkind Agua specializes Bebida
+subkind Refrigerante specializes Bebida
+subkind Suco specializes Bebida
+subkind Pizza specializes Item_Da_Pizzaria
+subkind Massa_Fina_e_Crocante specializes Massa_Da_Pizza
+subkind Massa_Pan specializes Massa_Da_Pizza
+subkind Carne specializes Cobertura_Da_Pizza
+subkind Fruto_Do_Mar specializes Cobertura_Da_Pizza
+subkind Queijo specializes Cobertura_Da_Pizza
+subkind Vegetal specializes Cobertura_Da_Pizza
+subkind Borda_Sem_Recheio specializes Borda_Da_Pizza
+subkind Borda_Recheada specializes Borda_Da_Pizza {
+    recheio_Da_Borda : Recheio_Da_Borda
+}
+subkind Calabresa specializes Carne
+subkind Presunto specializes Carne
+subkind Salame specializes Carne
+subkind Anchova specializes Fruto_Do_Mar
+subkind Atum specializes Fruto_Do_Mar
+subkind Camarao specializes Fruto_Do_Mar
+subkind Mussarela specializes Queijo
+subkind Parmesao specializes Queijo
+subkind Azeitona specializes Vegetal
+subkind Pimenta specializes Vegetal
+subkind Tomate specializes Vegetal
+
+role Dono_De_Pizzaria specializes Pessoa
+role Funcionario specializes Pessoa
+role Pizzaiolo specializes Funcionario
+role Atendente specializes Funcionario
+role ClienteIndividual specializes Cliente, Pessoa
+role ClienteEmpresarial specializes Cliente, Empresa
+role Pizzaria specializes Empresa
+
+roleMixin Cliente
+
+collective Lista_de_Itens {
+  @memberOf [0..*] <>-- [1..*] Item_Da_Pizzaria
+}
+
+enum Recheio_Da_Borda {
+    Chocolate01,
+    Catupiry02,
+    Molho_Cheddar03
+}
+
+disjoint complete genset Papel_Da_Pessoa {
+    general Pessoa
+    specifics ClienteIndividual, Dono_De_Pizzaria, Funcionario
+}
+disjoint complete genset Papel_Do_Funcionario {
+    general Funcionario
+    specifics Pizzaiolo, Atendente
+}
+disjoint complete genset Tipos_de_Clientes {
+    general Cliente
+    specifics ClienteIndividual, ClienteEmpresarial
+}
+disjoint complete genset Opcao_De_Bebida {
+    general Bebida
+    specifics Agua, Refrigerante, Suco
+}
+disjoint complete genset Opcao_De_Massa {
+    general Massa_Da_Pizza
+    specifics Massa_Fina_e_Crocante, Massa_Pan
+}
+disjoint complete genset Opcao_De_Cobertura {
+    general Cobertura_Da_Pizza
+    specifics Carne, Fruto_Do_Mar, Queijo, Vegetal
+}
+disjoint complete genset Opcao_De_Borda {
+    general Borda_Da_Pizza
+    specifics Borda_Recheada, Borda_Sem_Recheio
+}
+disjoint complete genset Opcao_De_Carne {
+    general Carne
+    specifics Calabresa, Presunto, Salame
+}
+disjoint complete genset Opcao_De_Fruto_Do_Mar {
+    general Fruto_Do_Mar
+    specifics Anchova, Atum, Camarao
+}
+disjoint complete genset Opcao_De_Queijo {
+    general Queijo
+    specifics Mussarela, Parmesao
+}
+disjoint complete genset Opcao_De_Vegetal {
+    general Vegetal
+    specifics Azeitona, Pimenta, Tomate
+}
+disjoint complete genset Tipo_Do_Item {
+    general Item_Da_Pizzaria
+    specifics Pizza, Bebida, Petisco
+}
+
+@material relation Pizza [1..*] -- tem_Massa -- [1..*] Massa_Da_Pizza
+
+relator Composicao_Da_Massa {
+    @mediation [1..*] -- [1..*] Massa_Da_Pizza
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+@material relation Pizza [1..*] -- tem_Cobertura -- [1..*] Cobertura_Da_Pizza
+
+relator Montagem_Da_Cobertura {
+    @mediation [1..*] -- [1..*] Cobertura_Da_Pizza
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+@material relation Pizza [1..*] -- tem_Borda -- [1..*] Borda_Da_Pizza
+
+relator Montagem_Da_Borda {
+    @mediation [1..*] -- [1..*] Borda_Da_Pizza
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+@material relation Atendente [1..*] -- anota -- [1..*] Lista_de_Itens
+@material relation Cliente [1..*] -- solicita -- [1..*] Lista_de_Itens
+@material relation Cliente [1..*] -- atendido_Por -- [1..*] Atendente
+
+relator Atendimento {
+    @mediation [1..*] -- [1..*] Atendente
+    @mediation [1..*] -- [1..*] Cliente
+    @mediation [1..*] -- [1..*] Lista_de_Itens
+}
+
+@material relation Pizzaiolo [1..*] -- prepara -- [1..*] Pizza
+
+relator Preparo_Da_Pizza {
+    @mediation [1..*] -- [1..*] Pizzaiolo
+    @mediation [1..*] -- [1..*] Pizza
+}
+
+@material relation Cliente [1..*] -- compra_Em -- [1..*] Pizzaria
+@material relation Pizzaria [1..*] -- vende -- [1..*] Item_Da_Pizzaria
+@material relation Cliente [1..*] -- compra -- [1..*] Item_Da_Pizzaria
+
+relator Venda_De_Alimento {
+    @mediation [1..*] -- [1..*] Pizzaria
+    @mediation [1..*] -- [1..*] Cliente
+    @mediation [1..*] -- [1..*] Item_Da_Pizzaria
+}
