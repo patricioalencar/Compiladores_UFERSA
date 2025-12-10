@@ -1,0 +1,106 @@
+package Hospital
+
+kind Unidade_Basica_De_Saude
+kind Pessoa {
+    nome : string [1]
+    endereco : string [1]
+    cpf : string [1]
+    data_nascimento : date [1]
+}
+kind Vacina {
+    tipo_De_Vacina : Tipo_De_Vacina
+}
+
+phase Crianca specializes Pessoa
+phase Adolescente specializes Pessoa
+phase Adulto specializes Pessoa
+phase Idoso specializes Pessoa
+
+role FuncionarioDaUBS specializes Pessoa 
+role Enfermeiro specializes FuncionarioDaUBS
+role Medico specializes FuncionarioDaUBS {
+    especialidade : Especialidade
+}
+role Paciente specializes Pessoa {
+    tipo_Sanguineo : TipoSanguineo
+    numero_Prontuario : number
+    numero_CNS : string
+}
+
+enum Especialidade {
+    Clinico_Geral01,
+    Pediatra02,
+    Ginecologista03,
+    Dentista04
+}
+enum TipoSanguineo {
+    A_Plus01,
+    A_Minus02,
+    B_Plus03,
+    B_Minus04,
+    AB_Plus05,
+    AB_Minus06, 
+    O_Plus07,
+    O_Minus08
+}
+enum Tipo_De_Consulta {
+    Acompanhamento_Pediatrico01,
+    Atendimento_Pre-Natal02,
+    Atendimento_Odontologico03,
+    Consulta_Clinica_Geral04
+}
+enum Tipo_De_Vacina {
+    Covid01,
+    FebreAmarela02,
+    Tetano03,
+    Influenza04
+}
+enum Tipo_De_Vinculo {
+    Estatuario01,
+    CLT02,
+    Temporario03
+}
+
+disjoint complete genset CargosNaUBS {
+    general FuncionarioDaUBS
+    specifics Enfermeiro, Medico
+}
+disjoint complete genset Paciente_E_Funcionario {
+    general Pessoa
+    specifics Paciente, FuncionarioDaUBS
+}
+
+@material relation Paciente [1..*] -- consultado_Por -- [1..*] Medico
+
+relator Consulta_Medica {
+    tipo_De_Consulta : Tipo_De_Consulta
+
+    @mediation [1..*] -- [1] Paciente
+    @mediation [1..*] -- [1] Medico
+}
+
+@material relation Enfermeiro [1..*] -- verifica -- [1..*] Vacina
+@material relation Paciente [1..*] -- vacinado_Por -- [1..*] Enfermeiro
+@material relation Paciente [1..*] -- imunizado_Com -- [1..*] Vacina
+
+relator Vacinacao {
+    @mediation [1..*] -- [1] Enfermeiro
+    @mediation [1..*] -- [1] Paciente
+    @mediation [1..*] -- [1..*] Vacina
+}
+
+@material relation Paciente [1..*] -- atendido_Em --  [1..*] Unidade_Basica_De_Saude
+
+relator Servico_Basico_De_Saude {
+    @mediation [1..*] -- [1..*] Unidade_Basica_De_Saude
+    @mediation [1..*] -- [1..*] Paciente
+}
+
+@material relation FuncionarioDaUBS [1..*] -- trabalha_Em -- [1] Unidade_Basica_De_Saude
+
+relator Vinculo_Empregaticio {
+    tipo_De_Vinculo : Tipo_De_Vinculo
+    
+    @mediation [1..*] -- [1] Unidade_Basica_De_Saude
+    @mediation [1..*] -- [1..*] FuncionarioDaUBS
+}
